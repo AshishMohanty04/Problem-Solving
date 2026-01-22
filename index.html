@@ -1,0 +1,23 @@
+<h2>Inventory List</h2>
+
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th>Quantity</th>
+  <th>Status</th>
+</tr>
+
+{% for p in products %}
+<tr>
+  <td>{{ p.name }}</td>
+  <td>{{ p.quantity }}</td>
+  <td>
+    {% if p.needs_reorder %}
+      ⚠️ Reorder Required
+    {% else %}
+      ✅ Stock OK
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</table>
