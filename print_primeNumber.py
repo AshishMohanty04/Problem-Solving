@@ -1,11 +1,12 @@
-n = int(input("enter an number "))
-number_prime = True 
+n = int(input("Enter a number: "))
 
-for i in range(1,n):
-    if i % 2 ==0:
-        number_prime = False 
-        break 
+for num in range(2, n + 1):
+    number_prime = True
 
+    for i in range(2, num):
+        if num % i == 0:
+            number_prime = False
+            break
 
-if number_prime :
-    print(f"the numbers are : {i}")
+    if number_prime:
+        print(num)
