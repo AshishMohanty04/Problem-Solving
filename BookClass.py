@@ -7,7 +7,6 @@ class Book:
     def getDetails(self):
         return f"Title: {self.title}, Author: {self.author}, Price: {self.price}"
 
-
 # Example
 book1 = Book("Python Basics", "Ashish Mohanty", 499)
 print(book1.getDetails())
