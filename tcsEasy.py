@@ -5,7 +5,7 @@ if n < 1000:
     total = n - dis
     print(total)
 
-if 1000 >= n <= 5000:
+if 1000 <= n <= 5000:
     dis = n * 10/100
     total = n - dis
     print(total)
