@@ -7,3 +7,6 @@ nums=[3, 9, 5, 7]
 target = 14
 print(twoSum(nums , target))
 
+
+#two sum
+
