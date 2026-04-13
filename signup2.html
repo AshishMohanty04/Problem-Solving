@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dry Fruit Marketplace - Sign Up</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+.container {
+    width: 360px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Role Bar */
+.role-bar {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: #eee;
+}
+
+.role-btn.active {
+    background: #2f5d3a;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button.signup {
+    width: 100%;
+    padding: 12px;
+    background: #2f5d3a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.signup:hover {
+    background: #24492e;
+}
+
+/* Google Button */
+.google-btn {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.google-btn img {
+    width: 18px;
+    margin-right: 10px;
+}
+
+.google-btn:hover {
+    background: #f7f7f7;
+}
+
+.divider {
+    text-align: center;
+    margin: 10px 0;
+    color: #888;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Terms */
+.checkbox {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.terms-link {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Role Selection -->
+    <div class="role-bar">
+        <button class="role-btn active" onclick="showForm('buyer', this)">Buyer</button>
+        <button class="role-btn" onclick="showForm('seller', this)">Seller</button>
+        <button class="role-btn" onclick="showForm('admin', this)">Admin</button>
+    </div>
+
+    <h2>Sign Up</h2>
+
+    <!-- Buyer (Clean) -->
+    <div id="buyer">
+        <input type="text" placeholder="Full Name">
+        <input type="text" placeholder="Email or Phone">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+    </div>
+
+    <!-- Seller -->
+    <div id="seller" class="hidden">
+        <input type="text" placeholder="Seller Name">
+        <input type="text" placeholder="Business / Store Name">
+        
+        <input type="email" placeholder="Business Email">
+        <input type="text" placeholder="Phone Number">
+
+        <input type="text" placeholder="Warehouse / Shop Address">
+        <input type="text" placeholder="City">
+        <input type="text" placeholder="Pincode">
+
+        <select>
+            <option>Type of Dry Fruits You Sell</option>
+            <option>Almonds</option>
+            <option>Cashews</option>
+            <option>Dates</option>
+            <option>Raisins</option>
+            <option>All Types</option>
+        </select>
+
+        <input type="text" placeholder="GST Number (Optional)">
+        <input type="text" placeholder="UPI ID / Bank Details">
+
+        <input type="password" placeholder="Create Password">
+    </div>
+
+    <!-- Admin -->
+    <div id="admin" class="hidden">
+        <input type="text" placeholder="Admin Name">
+        <input type="email" placeholder="Official Email">
+        <input type="text" placeholder="Admin ID">
+        <input type="password" placeholder="Security Code">
+        <input type="password" placeholder="Password">
+    </div>
+
+    <!-- Terms -->
+    <div class="checkbox">
+        <input type="checkbox" id="terms">
+        <label for="terms">
+            I agree to 
+            <a href="#" class="terms-link">Terms & Conditions</a>
+        </label>
+    </div>
+
+    <!-- Signup Button -->
+    <button class="signup" onclick="submitForm()">Sign Up</button>
+
+    <!-- Google Signup Bottom -->
+    <div class="divider">OR</div>
+
+    <button class="google-btn" onclick="googleLogin()">
+        <img src="https://developers.google.com/identity/images/g-logo.png">
+        Sign up with Google
+    </button>
+
+</div>
+
+<script>
+function showForm(role, element) {
+    document.getElementById("buyer").classList.add("hidden");
+    document.getElementById("seller").classList.add("hidden");
+    document.getElementById("admin").classList.add("hidden");
+
+    document.getElementById(role).classList.remove("hidden");
+
+    let buttons = document.querySelectorAll(".role-btn");
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    element.classList.add("active");
+}
+
+function submitForm() {
+    let terms = document.getElementById("terms").checked;
+
+    if (!terms) {
+        alert("Please accept Terms & Conditions");
+        return;
+    }
+
+    alert("Signup Successful 🌰");
+}
+
+function googleLogin() {
+    alert("Google Login Coming Soon 🚀");
+}
+</script>
+
+</body>
+</html>

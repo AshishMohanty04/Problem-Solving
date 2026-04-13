@@ -1,0 +1,182 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Signup Page</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+}
+
+.container {
+    width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.terms-link {
+    color: #007BFF;   /* Blue color */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+/* 🔥 Top Role Bar */
+.role-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    background: #eee;
+    border: none;
+}
+
+.role-btn.active {
+    background: #2f5d3a;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button.signup {
+    width: 100%;
+    padding: 12px;
+    background: #2f5d3a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.checkbox input {
+    width: auto;
+    margin-right: 8px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 🔥 Role Selection Top Bar -->
+    <div class="role-bar">
+        <button class="role-btn active" onclick="showForm('buyer', this)">Buyer</button>
+        <button class="role-btn" onclick="showForm('seller', this)">Seller</button>
+        <button class="role-btn" onclick="showForm('admin', this)">Admin</button>
+    </div>
+
+    <h2>Sign Up</h2>
+
+    <!-- Buyer -->
+    <div id="buyer">
+        <input type="text" placeholder="Full Name">
+        <input type="text" placeholder="Email or Phone">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+    </div>
+
+    <!-- Seller -->
+    <div id="seller" class="hidden">
+        <input type="text" placeholder="Store Name">
+        <input type="email" placeholder="Business Email">
+        <input type="text" placeholder="Phone Number">
+        <input type="text" placeholder="GST Number (Optional)">
+        <input type="text" placeholder="UPI / Bank Details">
+        <input type="text" placeholder="Business Address">
+        <input type="password" placeholder="Password">
+    </div>
+
+    <!-- Admin -->
+    <div id="admin" class="hidden">
+        <input type="text" placeholder="Admin Name">
+        <input type="email" placeholder="Official Email">
+        <input type="text" placeholder="Employee ID">
+        <input type="password" placeholder="Security Code">
+        <input type="password" placeholder="Password">
+    </div>
+
+    <!-- Terms -->
+<div class="checkbox">
+    <input type="checkbox" id="terms">
+    <label for="terms">
+        I agree to 
+        <a href="#" class="terms-link">Terms & Conditions</a>
+    </label>
+</div>
+
+    <button class="signup" onclick="submitForm()">Sign Up</button>
+
+</div>
+
+<script>
+function showForm(role, element) {
+
+    // Hide all forms
+    document.getElementById("buyer").classList.add("hidden");
+    document.getElementById("seller").classList.add("hidden");
+    document.getElementById("admin").classList.add("hidden");
+
+    // Show selected form
+    document.getElementById(role).classList.remove("hidden");
+
+    // Remove active from all buttons
+    let buttons = document.querySelectorAll(".role-btn");
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    // Add active to clicked button
+    element.classList.add("active");
+}
+
+function submitForm() {
+    let terms = document.getElementById("terms").checked;
+
+    if(!terms){
+        alert("Please accept Terms & Conditions");
+        return;
+    }
+
+    alert("Signup Successful!");
+}
+</script>
+
+</body>
+</html> 
