@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Terms & Conditions</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #fff;
+  padding: 40px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 12px;
+  color: #444;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #1f6b3b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Terms & Conditions</h1>
+
+  <p>1. Provide correct information.</p>
+  <p>2. Data is securely stored.</p>
+  <p>3. No cancellation after dispatch.</p>
+  <p>4. Sellers must follow quality rules.</p>
+  <p>5. Misuse leads to account suspension.</p>
+
+  <input type="checkbox" id="agreeTerms"> I agree
+
+  <br>
+
+  <button onclick="acceptTerms()">Accept</button>
+</div>
+
+<script>
+function acceptTerms() {
+  const check = document.getElementById("agreeTerms");
+
+  if (!check.checked) {
+    alert("Please agree first.");
+    return;
+  }
+
+  alert("Accepted! Go back to signup.");
+}
+</script>
+
+</body>
+</html>

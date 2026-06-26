@@ -47,8 +47,6 @@ body {
   background: #f1f1f1;
   padding: 8px 12px;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
 }
 
 .location input {
@@ -155,8 +153,7 @@ p { color: gray; margin-bottom: 20px; }
 
 .link {
   color: #1a73e8;
-  cursor: pointer;
-  font-weight: 500;
+  text-decoration: none;
 }
 
 /* BUTTON */
@@ -190,15 +187,6 @@ p { color: gray; margin-bottom: 20px; }
   background: #fff;
 }
 
-.alt-btn img {
-  width: 18px;
-  height: 18px;
-}
-
-.alt-btn:hover {
-  background: #f5f5f5;
-}
-
 .hidden {
   display: none;
 }
@@ -227,7 +215,7 @@ p { color: gray; margin-bottom: 20px; }
 
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
-  🔥 FLAT 50% OFF on All Exotic Nuts • 🌿 Subscribe & Save 20% • 🎁 Corporate Hampers • ⚡ Free Shipping Above ₹999
+  🔥 FLAT 50% OFF • 🌿 Subscribe & Save • 🎁 Hampers • ⚡ Free Shipping Above ₹999
 </div>
 
 <!-- MAIN -->
@@ -256,7 +244,7 @@ p { color: gray; margin-bottom: 20px; }
       <input placeholder="Phone Number">
     </div>
 
-    <div class="form-group">
+    <div class="full">
       <input placeholder="Pincode">
     </div>
 
@@ -271,48 +259,32 @@ p { color: gray; margin-bottom: 20px; }
 
   <!-- SELLER -->
   <div id="sellerForm" class="hidden">
-
     <div class="full"><input placeholder="Seller Name"></div>
-    <div class="full"><input placeholder="Business / Store Name"></div>
+    <div class="full"><input placeholder="Business Name"></div>
     <div class="full"><input placeholder="Business Email"></div>
     <div class="full"><input placeholder="Phone Number"></div>
-    <div class="full"><input placeholder="Warehouse / Shop Address"></div>
+    <div class="full"><input placeholder="Address"></div>
 
     <div class="form-group">
       <input placeholder="City">
       <input placeholder="Pincode">
     </div>
 
-    <div class="full"><input placeholder="GST Number "></div>
-    <!-- <div class="full"><input placeholder="UPI / Bank Account"></div> -->
-    <!-- <div class="full"><input placeholder="IFSC Code"></div> -->
-    <div class="full"><input type="password" placeholder="Create Password"></div>
-    <div class="full"><input type="Confirm password" placeholder="Confirm password"></div>
-
+    <div class="full"><input placeholder="GST Number"></div>
+    <div class="full"><input type="password" placeholder="Password"></div>
+    <div class="full"><input type="password" placeholder="Confirm Password"></div>
   </div>
 
-  <!-- COMMON -->
+  <!-- TERMS -->
   <div class="checkbox">
-    <!-- <input type="checkbox"> -->
-    <label>agree to <span class="link">Terms & Privacy Policy</span></label>
+    <!-- <input type="checkbox" id="agreeMain"> -->
+    <label>
+    Agree to 
+      <a href="terms.html" target="_blank" class="link">Terms & Privacy Policy</a>
+    </label>
   </div>
 
-  <button class="btn">Create My Account →</button>
-
-  <div class="bottom">
-    <p>or continue with</p>
-
-    <div id="googleBtn" class="alt-btn">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
-      Sign up with Google
-    </div>
-
-    <div id="guestBtn" class="alt-btn">
-      👤 Sign up as Guest
-    </div>
-
-    <p style="margin-top:10px;">Already have an account? <b>Sign in</b></p>
-  </div>
+  <button class="btn" onclick="validateForm()">Create My Account →</button>
 
 </div>
 
@@ -322,30 +294,30 @@ const sellerBtn = document.getElementById("sellerBtn");
 const customerForm = document.getElementById("customerForm");
 const sellerForm = document.getElementById("sellerForm");
 
-const googleBtn = document.getElementById("googleBtn");
-const guestBtn = document.getElementById("guestBtn");
-
 customerBtn.onclick = () => {
-  customerBtn.classList.add("active");
-  sellerBtn.classList.remove("active");
-
   customerForm.classList.remove("hidden");
   sellerForm.classList.add("hidden");
-
-  googleBtn.style.display = "flex";
-  guestBtn.style.display = "flex";
+  customerBtn.classList.add("active");
+  sellerBtn.classList.remove("active");
 };
 
 sellerBtn.onclick = () => {
-  sellerBtn.classList.add("active");
-  customerBtn.classList.remove("active");
-
   sellerForm.classList.remove("hidden");
   customerForm.classList.add("hidden");
-
-  googleBtn.style.display = "none";
-  guestBtn.style.display = "none";
+  sellerBtn.classList.add("active");
+  customerBtn.classList.remove("active");
 };
+
+function validateForm() {
+  const agree = document.getElementById("agreeMain");
+
+  if (!agree.checked) {
+    alert("Please agree to Terms & Conditions first.");
+    return;
+  }
+
+  alert("Account Created Successfully ✅");
+}
 </script>
 
 </body>
